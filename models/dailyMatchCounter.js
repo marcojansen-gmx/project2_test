@@ -1,16 +1,17 @@
-const { DataTypes } = require('sequelize');
-const env = process.env.NODE_ENV || 'development';
-const config = require('../config/config.json')[env];
+// module.exports = (sequelize, Sequelize) => {
+//   const dailyMatchCounter = sequelize.define('dailyMatchCounter', {
+//     title: {
+//       numMatches: Sequelize.INTEGER
+//     },
+//     description: {
+//       created_at: Sequelize.DATE
+//     }
+//   });
+//   return dailyMatchCounter;
+// };
 
-const dailyMatchCounter = config.define('dailyMatchCounter', {
-  numMatches: DataTypes.INTEGER,
-  created_at: DataTypes.DATE
-});
-
-dailyMatchCounter.associate = (user) => {
-  dailyMatchCounter.belongsTo(user, { as: 'user_id', constraints: false });
-};
-
-dailyMatchCounter.sync();
-
-module.exports = dailyMatchCounter;
+// dailyMatchCounter.associate = (user) => {
+//   // Associating Author with Posts
+//   // When an Author is deleted, also delete any associated Posts
+//   dailyMatchCounter.belongsTo(user, { as: 'user_id', constraints: false });
+// };
